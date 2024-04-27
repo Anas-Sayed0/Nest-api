@@ -6,6 +6,7 @@ import {
   AfterUpdate,
   AfterRemove,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class User {
