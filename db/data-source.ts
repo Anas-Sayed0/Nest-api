@@ -23,6 +23,16 @@ switch (process.env.NODE_ENV) {
     });
     break;
   case 'production':
+    Object.assign(dataSourceOptions, {
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      entities: ['dist/**/*.entity.js'],
+      migrations: ['dist/db/migrations/*.js'],
+      migrationsRun: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    });
     break;
 
   default:
